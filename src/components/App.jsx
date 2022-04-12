@@ -5,6 +5,8 @@ import { List } from './App.styled';
 import Filter from './filter/filter';
 import shortid from 'shortid';
 import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+
 const DEFAULT_LIST = [
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -71,6 +73,7 @@ function App() {
                     </List>
                 </Section>
             )}
+            <Toaster />
         </>
     );
 }

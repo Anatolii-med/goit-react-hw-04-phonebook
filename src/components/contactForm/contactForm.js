@@ -2,6 +2,7 @@ import React from 'react';
 import { FormWrap, Labels } from './contactForm.styled';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function ContactForm({ filterContact, onAdd }) {
     const [name, setName] = useState('');
@@ -23,11 +24,13 @@ function ContactForm({ filterContact, onAdd }) {
 
     function addContact(e) {
         e.preventDefault();
+
         filterContact.find(
             contact => contact.name.toLowerCase() === name.toLowerCase()
         )
-            ? alert(`${name} is already in contacts`)
+            ? toast.error(`${name} is already in contacts`)
             : onAdd(name, number);
+
         setName('');
         setNumber('');
     }
